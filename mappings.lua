@@ -70,15 +70,16 @@ M.splits = {
   },
 }
 
+M.treesj = {
+  n = {
+    ['<leader>lt'] = { function() require('treesj').toggle() end, 'Toggle code block' },
+  }
+}
+
 M.lsp = {
   n = {
-    ['K'] = { function() vim.lsp.buf.hover() end, 'Show hover' },
-    ['gd'] = { function() vim.lsp.buf.definition() end, 'Goto definition' },
-    ['gD'] = { function() vim.lsp.buf.declaration() end, 'Goto Declaration' },
     ['gr'] = { function() require('telescope.builtin').lsp_references() end, 'Telescope references' },
     ['gR'] = { function() require('nvchad_ui.renamer').open() end, 'Rename' },
-    -- ['gR'] = { function() vim.lsp.buf.references() end, 'Goto references' },
-    ['gI'] = { function() vim.lsp.buf.implementation() end, 'Goto Implementation' },
     ['gs'] = { function() vim.lsp.buf.signature_help() end, 'show signature help' },
     ['gl'] = {
       function()

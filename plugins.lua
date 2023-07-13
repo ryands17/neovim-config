@@ -44,9 +44,6 @@ local plugins = {
         end,
       },
     },
-    init = function()
-      require('core.utils').lazy_load 'nvim-lspconfig'
-    end,
     config = function()
       require 'plugins.configs.lspconfig'
       require 'custom.configs.lspconfig'
@@ -184,6 +181,7 @@ local plugins = {
         d = { name = 'Debugging' },
         f = { name = 'Find' },
         g = { name = 'Git' },
+        l = { name = 'Lsp' },
         m = { name = 'Harpoon' },
         r = { name = 'MoreLsp' },
         s = { name = 'Splits' },
@@ -191,6 +189,14 @@ local plugins = {
       }, { prefix = '<leader>' })
     end,
   },
+
+  -- Easy code toggling
+  {
+    'Wansmer/treesj',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    cmd = { 'TSJToggle', 'TSJSplit', 'TSJJoin' },
+    opts = overrides.treesj
+  }
 
   -- To make a plugin not be loaded
   -- {

@@ -257,7 +257,9 @@ local liblldb_path = rust_extension_path .. '/lldb/lib/liblldb.dylib'
 -- rust tools
 M.rusttools = {
   server = {
-    on_attach = function(_, bufnr)
+    on_attach = function(client, bufnr)
+      require('plugins.configs.lspconfig').on_attach(client, bufnr)
+
       local rt = require('rust-tools')
       -- general settings
       rt.inlay_hints.enable()
@@ -293,7 +295,9 @@ M.rusttools = {
 M.typescript = {
   go_to_source_definition = { fallback = true, },
   server = {
-    on_attach = function(_, bufnr)
+    on_attach = function(client, bufnr)
+      require('plugins.configs.lspconfig').on_attach(client, bufnr)
+
       key.set('n', '<leader>co', '<cmd>TypescriptOrganizeImports<CR>',
         { buffer = bufnr, desc = 'Organize Imports' })
       key.set('n', '<leader>cR', '<cmd>TypescriptRenameFile<CR>',
@@ -327,6 +331,14 @@ M.typescript = {
       },
     }
   },
+}
+
+M.treesj = {
+  use_default_keymaps = false,
+  -- Notify about possible problems or not
+  notify = true,
+  -- Use `dot` for repeat action
+  dot_repeat = true,
 }
 
 M.better_escape = {

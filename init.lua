@@ -39,7 +39,7 @@ autocmd('BufReadPost', {
 
 -- Set 4 spaces for Python, Kotlin
 autocmd('FileType', {
-  pattern = { 'py', 'kt' },
+  pattern = { 'python', 'java', 'kotlin' },
   callback = function()
     opt.tabstop = 4
     opt.shiftwidth = 4
