@@ -3,7 +3,6 @@ local M = {}
 
 M.general = {
 	n = {
-		[";"] = { ":", "enter command mode", opts = { nowait = true } },
 		["<leader>ss"] = { ":w<cr>", "Save buffer" },
 		["<leader>X"] = { ":q!<cr>", "Close window" },
 		["<C-d>"] = { "<C-d>zz" },
