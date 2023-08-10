@@ -25,6 +25,9 @@ M.treesitter = {
 		--   "python"
 		-- },
 	},
+	disable = function(lang, bufnr) --
+		return vim.api.nvim_buf_line_count(bufnr) > 50000
+	end,
 }
 
 M.mason = {
@@ -300,6 +303,12 @@ M.rusttools = {
 M.typescript = {
 	go_to_source_definition = { fallback = true },
 	server = {
+		root_dir = function(fname)
+			local lspconfig = require("lspconfig")
+
+			return lspconfig.util.root_pattern("tsconfig.json")(fname)
+				or lspconfig.util.root_pattern("package.json", "jsconfig.json")(fname)
+		end,
 		on_attach = function(client, bufnr)
 			require("plugins.configs.lspconfig").on_attach(client, bufnr)
 

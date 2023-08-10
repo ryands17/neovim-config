@@ -8,15 +8,11 @@ local servers = {
 	lua_ls = {},
 	html = {},
 	cssls = {},
-	-- tsserver = {
-	--   root_dir = function(fname)
-	--     return lspconfig.util.root_pattern('tsconfig.json')(fname) or
-	--         lspconfig.util.root_pattern('package.json', 'jsconfig.json', '.git')(
-	--           fname
-	--         ) or
-	--         vim.fn.getcwd()
-	--   end
-	-- },
+	denols = {
+		root_dir = function(fname)
+			return lspconfig.util.root_pattern("deno.json", "deno.jsonc")(fname)
+		end,
+	},
 	emmet_ls = {
 		filetypes = { "css", "html", "javascriptreact", "svelte", "pug", "typescriptreact", "vue" },
 		init_options = {

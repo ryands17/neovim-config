@@ -100,3 +100,6 @@ autocmd({ "VimEnter", "ColorScheme" }, {
 		vim.api.nvim_set_hl(0, "semshiAttribute", { link = "TSAttribute" })
 	end,
 })
+
+-- reload file on external changes
+autocmd({ "CursorHold" }, { command = "checktime" })
