@@ -5,7 +5,21 @@ local lspconfig = require("lspconfig")
 
 -- if you just want default config for the servers then put them in a table
 local servers = {
-	lua_ls = {},
+	lua_ls = {
+		settings = {
+			Lua = {
+				diagnostics = {
+					globals = { "vim" },
+				},
+				workspace = {
+					library = {
+						[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+						[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+					},
+				},
+			},
+		},
+	},
 	html = {},
 	cssls = {},
 	denols = {
@@ -13,6 +27,7 @@ local servers = {
 			return lspconfig.util.root_pattern("deno.json", "deno.jsonc")(fname)
 		end,
 	},
+	tailwindcss = {},
 	emmet_ls = {
 		filetypes = { "css", "html", "javascriptreact", "svelte", "pug", "typescriptreact", "vue" },
 		init_options = {
