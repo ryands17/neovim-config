@@ -102,4 +102,4 @@ autocmd({ "VimEnter", "ColorScheme" }, {
 })
 
 -- reload file on external changes
-autocmd({ "CursorHold" }, { command = "checktime" })
+autocmd({ "CursorHold", "FocusGained" }, { command = "checktime" })
