@@ -53,6 +53,11 @@ M.mason = {
 
 local function nvim_tree_attach(bufnr)
 	local api = require("nvim-tree.api")
+	-- automatically open file on creation
+	api.events.subscribe(api.events.Event.FileCreated, function(file)
+		vim.cmd("edit " .. file.fname)
+	end)
+
 	-- open fold or file if exists
 	local function open_folder_or_file()
 		local node = api.tree.get_node_under_cursor()
