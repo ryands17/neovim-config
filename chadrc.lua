@@ -7,7 +7,7 @@ M.ui = {
 
   statusline = { theme = 'vscode_colored' },
 
-  tabufline = { lazyload = true },
+  tabufline = {enabled = false},
 
   -- hl_override = {
   --   Comment = { italic = true },
