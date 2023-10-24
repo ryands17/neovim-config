@@ -23,6 +23,7 @@ local sources = {
 			"markdown",
 			"graphql",
 			"md",
+			"astro",
 		},
 		only_local = "node_modules/.bin",
 	}), -- so prettier works only on these filetypes

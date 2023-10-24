@@ -28,8 +28,9 @@ local servers = {
 		end,
 	},
 	tailwindcss = {},
+	astro = {},
 	emmet_ls = {
-		filetypes = { "css", "html", "javascriptreact", "svelte", "pug", "typescriptreact", "vue" },
+		filetypes = { "css", "html", "javascriptreact", "svelte", "pug", "typescriptreact", "vue", "astro" },
 		init_options = {
 			html = {
 				options = {

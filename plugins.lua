@@ -119,7 +119,7 @@ local plugins = {
 	-- TypeScript plugin with better options
 	{
 		"jose-elias-alvarez/typescript.nvim",
-		ft = { "typescript", "javascript", "typescriptreact", "javascriptreact" },
+		ft = { "typescript", "javascript", "typescriptreact", "javascriptreact", "astro" },
 		dependencies = { "neovim/nvim-lspconfig" },
 		opts = overrides.typescript,
 	},
