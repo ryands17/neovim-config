@@ -306,6 +306,22 @@ M.rusttools = {
 	},
 }
 
+M.conform = {
+	-- Define your formatters
+	formatters_by_ft = {
+		lua = { "stylua" },
+		-- python = { "isort", "black" },
+		javascript = { { "prettier", "prettierd" } },
+		json = { { "prettier", "prettierd" } },
+		html = { { "prettier", "prettierd" } },
+		css = { { "prettier", "prettierd" } },
+		markdown = { { "prettier", "prettierd" } },
+		astro = { { "prettier", "prettierd" } },
+	},
+	-- Set up format-on-save
+	format_on_save = { timeout_ms = 500, lsp_fallback = true },
+}
+
 -- typescript server setup
 M.typescript = {
 	go_to_source_definition = { fallback = true },

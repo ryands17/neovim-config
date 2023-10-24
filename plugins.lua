@@ -24,26 +24,16 @@ local plugins = {
 	},
 
 	-- Important LSP setup
+	-- This plugin is for formatting files
 	{
-		"jose-elias-alvarez/null-ls.nvim",
-		dependencies = { "jose-elias-alvarez/typescript.nvim" },
-		opts = function(_, opts)
-			opts.sources = opts.sources or {}
-			table.insert(opts.sources, require("typescript.extensions.null-ls.code-actions"))
-		end,
+		"stevearc/conform.nvim",
+		event = { "BufWritePre" },
+		cmd = { "ConformInfo" },
+		opts = overrides.conform,
 	},
 
 	{
 		"neovim/nvim-lspconfig",
-		dependencies = {
-			-- formatting & linting
-			{
-				"jose-elias-alvarez/null-ls.nvim",
-				config = function()
-					require("custom.configs.null-ls")
-				end,
-			},
-		},
 		config = function()
 			require("plugins.configs.lspconfig")
 			require("custom.configs.lspconfig")
