@@ -15,6 +15,7 @@ M.treesitter = {
 		"tsx",
 		"markdown",
 		"markdown_inline",
+		"astro",
 		"rust",
 		"json",
 		"python",
@@ -44,6 +45,7 @@ M.mason = {
 		"prettier",
 		"emmet-ls",
 		"json-lsp",
+		"astro",
 
 		-- rust
 		"rust-analyzer",
