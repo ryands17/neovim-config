@@ -312,14 +312,19 @@ M.conform = {
 		lua = { "stylua" },
 		-- python = { "isort", "black" },
 		javascript = { { "prettier", "prettierd" } },
+		javascriptreact = { { "prettier", "prettierd" } },
+		typescript = { { "prettier", "prettierd" } },
+		typescriptreact = { { "prettier", "prettierd" } },
 		json = { { "prettier", "prettierd" } },
+		jsonc = { { "prettier", "prettierd" } },
+		yaml = { { "prettier", "prettierd" } },
 		html = { { "prettier", "prettierd" } },
 		css = { { "prettier", "prettierd" } },
 		markdown = { { "prettier", "prettierd" } },
 		astro = { { "prettier", "prettierd" } },
 	},
 	-- Set up format-on-save
-	format_on_save = { timeout_ms = 500, lsp_fallback = true },
+	format_on_save = { timeout_ms = 1000, lsp_fallback = true, async = false },
 }
 
 -- typescript server setup

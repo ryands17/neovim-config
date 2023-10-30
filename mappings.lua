@@ -3,7 +3,7 @@ local M = {}
 
 M.general = {
 	n = {
-		["<leader>ss"] = { ":w<cr>", "Save buffer" },
+		["<leader>s"] = { ":w<cr>", "Save buffer" },
 		["<leader>X"] = { ":q!<cr>", "Close window" },
 		["<C-d>"] = { "<C-d>zz" },
 		-- easy execution of macros on the register "q"
@@ -53,13 +53,13 @@ M.harpoon = {
 			end,
 			"Toggle menu",
 		},
-		["<leader>mn"] = {
+		["<Tab>"] = {
 			function()
 				require("harpoon.ui").nav_next()
 			end,
 			"Next file",
 		},
-		["<leader>mp"] = {
+		["<S-Tab>"] = {
 			function()
 				require("harpoon.ui").nav_prev()
 			end,
@@ -84,9 +84,9 @@ M.trouble = {
 
 M.splits = {
 	n = {
-		["<leader>sv"] = { "<cmd>vs<cr>", "Vertical split" },
-		["<leader>sh"] = { "<cmd>sp<cr>", "Horizontal split" },
-		["<leader>se"] = { "<C-w>=", "Equal size splits" },
+		["<leader>Sv"] = { "<cmd>vs<cr>", "Vertical split" },
+		["<leader>Sh"] = { "<cmd>sp<cr>", "Horizontal split" },
+		["<leader>Se"] = { "<C-w>=", "Equal size splits" },
 		["<S-Left>"] = { ":vertical resize +3<cr>" },
 		["<S-Right>"] = { ":vertical resize -3<cr>" },
 		["<S-Up>"] = { ":resize +3<cr>" },
