@@ -28,6 +28,49 @@ M.general = {
 	},
 }
 
+M.gitsigns = {
+	n = {
+		["<leader>gs"] = {
+			function()
+				require("gitsigns").stage_hunk()
+			end,
+			"Stage Hunk",
+		},
+		["<leader>gr"] = {
+			function()
+				require("gitsigns").reset_hunk()
+			end,
+			"Reset Hunk",
+		},
+		["<leader>gp"] = {
+			function()
+				require("gitsigns").preview_hunk()
+			end,
+			"Preview Hunk",
+		},
+		["<leader>gt"] = {
+			function()
+				require("gitsigns").toggle_deleted()
+			end,
+			"Toggle deleted",
+		},
+	},
+	v = {
+		["<leader>gs"] = {
+			function()
+				require("gitsigns").stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+			end,
+			"Stage Hunk",
+		},
+		["<leader>gr"] = {
+			function()
+				require("gitsigns").reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+			end,
+			"Reset Hunk",
+		},
+	},
+}
+
 M.quickfix = {
 	n = {
 		["<leader>co"] = { ":copen<cr>", "Open q window" },
