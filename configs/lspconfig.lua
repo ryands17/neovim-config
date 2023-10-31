@@ -6,19 +6,36 @@ local lspconfig = require("lspconfig")
 -- if you just want default config for the servers then put them in a table
 local servers = {
 	lua_ls = {
-		settings = {
-			Lua = {
-				diagnostics = {
-					globals = { "vim" },
-				},
-				workspace = {
-					library = {
-						[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-						[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+		on_init = function(client)
+			local path = client.workspace_folders[1].name
+			if not vim.loop.fs_stat(path .. "/.luarc.json") and not vim.loop.fs_stat(path .. "/.luarc.jsonc") then
+				client.config.settings = vim.tbl_deep_extend("force", client.config.settings, {
+					Lua = {
+						diagnostics = {
+							globals = { "vim" },
+						},
+						runtime = {
+							-- Tell the language server which version of Lua you're using
+							-- (most likely LuaJIT in the case of Neovim)
+							version = "LuaJIT",
+						},
+						-- Make the server aware of Neovim runtime files
+						workspace = {
+							checkThirdParty = false,
+							library = {
+								vim.env.VIMRUNTIME,
+								[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+								[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+								-- "${3rd}/busted/library",
+							},
+						},
 					},
-				},
-			},
-		},
+				})
+
+				client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+			end
+			return true
+		end,
 	},
 	html = {},
 	cssls = {},
