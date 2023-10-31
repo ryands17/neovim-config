@@ -36,6 +36,12 @@ M.gitsigns = {
 			end,
 			"Stage Hunk",
 		},
+		["<leader>gu"] = {
+			function()
+				require("gitsigns").undo_stage_hunk()
+			end,
+			"Undo Stage Hunk",
+		},
 		["<leader>gr"] = {
 			function()
 				require("gitsigns").reset_hunk()
