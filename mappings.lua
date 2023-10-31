@@ -130,10 +130,10 @@ M.splits = {
 		["<leader>Sv"] = { "<cmd>vs<cr>", "Vertical split" },
 		["<leader>Sh"] = { "<cmd>sp<cr>", "Horizontal split" },
 		["<leader>Se"] = { "<C-w>=", "Equal size splits" },
-		["<S-Left>"] = { ":vertical resize +3<cr>" },
-		["<S-Right>"] = { ":vertical resize -3<cr>" },
-		["<S-Up>"] = { ":resize +3<cr>" },
-		["<S-Down>"] = { ":resize -3<cr>" },
+		["<S-Left>"] = { ":vertical resize +5<cr>" },
+		["<S-Right>"] = { ":vertical resize -5<cr>" },
+		["<S-Up>"] = { ":resize +5<cr>" },
+		["<S-Down>"] = { ":resize -5<cr>" },
 	},
 }
 

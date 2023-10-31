@@ -27,10 +27,14 @@ local servers = {
 			return lspconfig.util.root_pattern("deno.json", "deno.jsonc")(fname)
 		end,
 	},
-	tailwindcss = {},
-	astro = {},
-	emmet_ls = {
+	tailwindcss = {
 		filetypes = { "css", "html", "javascriptreact", "svelte", "pug", "typescriptreact", "vue", "astro" },
+	},
+	astro = {
+		filetypes = { "astro" },
+	},
+	emmet_ls = {
+		filetypes = { "css", "html", "javascriptreact", "svelte", "typescriptreact", "vue", "astro" },
 		init_options = {
 			html = {
 				options = {
