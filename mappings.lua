@@ -1,4 +1,3 @@
----@type MappingsTable
 local M = {}
 
 M.general = {
@@ -82,9 +81,9 @@ M.quickfix = {
 		["<leader>co"] = { ":copen<cr>", "Open q window" },
 		["<leader>cw"] = { ":cw<cr>", "Open q window on err" },
 		["<leader>cl"] = { ":ccl<cr>", "Close q window" },
-		["<leader>cn"] = { ":cn<cr>", "Next item" },
-		["<leader>cp"] = { ":cp<cr>", "Previous item" },
-		["<leader>cr"] = { ":cc<cr>", "Item under cursor" },
+		["]q"] = { ":cn<cr>", "Next item" },
+		["[q"] = { ":cp<cr>", "Previous item" },
+		-- ["<leader>cr"] = { ":.cc<cr>", "Item under cursor" },
 	},
 }
 
