@@ -60,6 +60,7 @@ local plugins = {
 
 	{
 		"ThePrimeagen/harpoon",
+		keys = { "<leader>" },
 		dependencies = { "nvim-lua/plenary.nvim" },
 		event = "BufEnter",
 	},
@@ -69,6 +70,7 @@ local plugins = {
 		"nvim-tree/nvim-tree.lua",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = overrides.nvimtree,
+		cmd = { "NvimTreeToggle" },
 	},
 
 	{ "nvim-tree/nvim-web-devicons" },
@@ -118,6 +120,7 @@ local plugins = {
 	{
 		"mfussenegger/nvim-dap",
 		dependencies = { "williamboman/mason.nvim" },
+		ft = { "typescript", "javascript", "typescriptreact", "javascriptreact", "astro", "rust", "python" },
 		init = function()
 			require("custom.configs.debugging")
 		end,

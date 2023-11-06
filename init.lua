@@ -24,9 +24,9 @@ opt.expandtab = true
 opt.softtabstop = 2
 
 -- folds
-opt.foldenable = true
-opt.foldmethod = "indent"
-opt.foldlevelstart = 99
+-- opt.foldenable = false
+-- opt.foldmethod = "indent"
+-- opt.foldlevelstart = 99
 
 -- Auto resize panes when resizing nvim window
 autocmd("VimResized", {

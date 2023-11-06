@@ -24,6 +24,7 @@ M.general = {
 		},
 		-- toggle tree
 		["<leader>e"] = { "<cmd> NvimTreeToggle<cr>", "Toggle nvimtree" },
+		["<leader>pp"] = { '"_dP', "Paste without losing clip" },
 	},
 }
 
