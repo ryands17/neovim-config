@@ -20,8 +20,8 @@ local plugins = {
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = {},
-		event = "BufEnter",
+		ft = { "javascript", "typescript", "rust" },
+		event = "InsertEnter",
 	},
 
 	-- Important LSP setup
@@ -35,6 +35,7 @@ local plugins = {
 
 	{
 		"neovim/nvim-lspconfig",
+		event = "BufEnter",
 		config = function()
 			require("plugins.configs.lspconfig")
 			require("custom.configs.lspconfig")
@@ -44,12 +45,14 @@ local plugins = {
 	-- LSP plugins installer
 	{
 		"williamboman/mason.nvim",
+		cmd = { "Mason" },
 		opts = overrides.mason,
 	},
 
 	-- Code highlighting and context awareness
 	{
 		"nvim-treesitter/nvim-treesitter",
+		event = "BufEnter",
 		opts = overrides.treesitter,
 	},
 
@@ -63,7 +66,6 @@ local plugins = {
 		"ThePrimeagen/harpoon",
 		keys = { "<leader>" },
 		dependencies = { "nvim-lua/plenary.nvim" },
-		event = "BufEnter",
 	},
 
 	-- File explorer and cool icons
@@ -142,9 +144,9 @@ local plugins = {
 	-- Vim surround and repeat for easy changes and repeats
 	{
 		"tpope/vim-surround",
-		-- change the value of `timeoutlen` if it's not triggering correctly, see https://github.com/tpope/vim-surround/issues/117
 		event = "BufEnter",
 		init = function()
+			-- change the value of `timeoutlen` if it's not triggering correctly, see https://github.com/tpope/vim-surround/issues/117
 			vim.o.timeoutlen = 500
 		end,
 	},
