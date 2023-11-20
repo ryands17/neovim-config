@@ -23,7 +23,9 @@ M.general = {
 			"Toggle theme",
 		},
 		-- toggle tree
-		["<leader>e"] = { "<cmd> NvimTreeToggle<cr>", "Toggle nvimtree" },
+		-- ["<leader>e"] = { "<cmd> NvimTreeToggle<cr>", "Toggle nvimtree" },
+		-- open oil in current directory
+		["<leader>e"] = { "<cmd>Oil<cr>", "Open file explorer" },
 	},
 	v = {
 		["<leader>p"] = { '"_dP', "Paste without losing clip" },

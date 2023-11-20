@@ -2,6 +2,13 @@ local overrides = require("custom.configs.overrides")
 
 ---@type NvPluginSpec[]
 local plugins = {
+	-- file navigator and easy creatio
+	{
+		"stevearc/oil.nvim",
+		opts = {},
+		cmd = { "Oil" },
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
 	-- Navigate between vim and tmux panes
 	{
 		"christoomey/vim-tmux-navigator",
@@ -69,12 +76,12 @@ local plugins = {
 	},
 
 	-- File explorer and cool icons
-	{
-		"nvim-tree/nvim-tree.lua",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		opts = overrides.nvimtree,
-		cmd = { "NvimTreeToggle" },
-	},
+	-- {
+	-- 	"nvim-tree/nvim-tree.lua",
+	-- 	dependencies = { "nvim-tree/nvim-web-devicons" },
+	-- 	opts = overrides.nvimtree,
+	-- 	cmd = { "NvimTreeToggle" },
+	-- },
 
 	{ "nvim-tree/nvim-web-devicons" },
 
@@ -132,6 +139,7 @@ local plugins = {
 	-- Debugging UI to make things easy
 	{
 		"rcarriga/nvim-dap-ui",
+		ft = { "typescript", "javascript", "typescriptreact", "javascriptreact", "astro", "rust", "python" },
 		dependencies = { "mfussenegger/nvim-dap" },
 	},
 
