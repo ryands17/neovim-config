@@ -166,7 +166,7 @@ M.lsp = {
 		},
 		["gR"] = {
 			function()
-				require("nvchad_ui.renamer").open()
+				require("nvchad.renamer").open()
 			end,
 			"Rename",
 		},
