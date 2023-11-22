@@ -191,6 +191,7 @@ M.lsp = {
 			end,
 			"Show line diagnostics",
 		},
+		["<leader>cr"] = { vim.lsp.codelens.run, "Codelens actions" }
 	},
 }
 

@@ -284,7 +284,11 @@ M.rusttools = {
 			)
 			key.set("n", "<leader>ro", rt.open_cargo_toml.open_cargo_toml, { desc = "Open Cargo.toml" })
 
-			vim.lsp.codelens.refresh()
+			-- refresh codelens on TextChanged and InsertLeave as well
+			vim.api.nvim_create_autocmd({ 'TextChanged', 'InsertLeave' }, {
+				buffer = bufnr,
+				callback = vim.lsp.codelens.refresh,
+			})
 		end,
 		capabilities = require("plugins.configs.lspconfig").capabilities,
 	},
@@ -335,7 +339,7 @@ M.typescript = {
 			local lspconfig = require("lspconfig")
 
 			return lspconfig.util.root_pattern("tsconfig.json")(fname)
-				or lspconfig.util.root_pattern("package.json", "jsconfig.json")(fname)
+					or lspconfig.util.root_pattern("package.json", "jsconfig.json")(fname)
 		end,
 		on_attach = function(client, bufnr)
 			require("plugins.configs.lspconfig").on_attach(client, bufnr)
@@ -387,10 +391,10 @@ M.treesj = {
 }
 
 M.better_escape = {
-	mapping = { "jk", "wq" }, -- a table with mappings to use
+	mapping = { "jk", "wq" },  -- a table with mappings to use
 	timeout = vim.o.timeoutlen, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
 	clear_empty_lines = false, -- clear line after escaping if there is only whitespace
-	keys = "<Esc>", -- keys used for escaping, if it is a function will use the result everytime
+	keys = "<Esc>",            -- keys used for escaping, if it is a function will use the result everytime
 }
 
 return M
