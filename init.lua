@@ -44,7 +44,7 @@ autocmd("BufReadPost", {
 
 -- Set 4 spaces for Python, Kotlin
 autocmd("FileType", {
-	pattern = { "python", "java", "kotlin" },
+	pattern = { "*.py", "*.java", "*.kt" },
 	callback = function()
 		opt.tabstop = 4
 		opt.shiftwidth = 4
@@ -108,3 +108,6 @@ autocmd({ "VimEnter", "ColorScheme" }, {
 
 -- reload file on external changes
 autocmd({ "CursorHold", "FocusGained" }, { command = "checktime" })
+
+-- set justfile filetype to makefile for easy syntax highlighting
+autocmd({ "BufNewFile", "BufRead", }, { pattern = "justfile", command = "setf make" })
